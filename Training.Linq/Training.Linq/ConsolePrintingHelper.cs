@@ -19,4 +19,13 @@ public static class ConsolePrintingHelper
             ? string.Empty 
             : list.Select(x => x.ToString()).Aggregate((x, y) => x + ", " + y);
     }
+    
+    public static string ToSingleString(this IEnumerable<decimal>? enumerable)
+    {
+        if (enumerable == null) return string.Empty;
+        var list = enumerable.ToList();
+        return !list.Any() 
+            ? string.Empty 
+            : list.Select(x => x.ToString()).Aggregate((x, y) => x + ", " + y);
+    }
 }

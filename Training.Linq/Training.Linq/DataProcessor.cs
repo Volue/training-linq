@@ -75,4 +75,24 @@ public class DataProcessor
         var dataRepository = new DataRepository();
         dataRepository.TenNumbers.Select(async n => await ReturnNumber(n));
     }
+    
+    public IEnumerable<string> GetAllWordCombinations(IEnumerable<string> collection)
+    {
+        return default;
+    }
+    
+    public IEnumerable<decimal> ExtractStringNumbers(IEnumerable<string> collection)
+    {
+        return default;
+    }
+    
+    public IEnumerable<decimal> CombineCollections(IEnumerable<string> collectionA, IEnumerable<string> collectionB)
+    {
+        return default;
+    }
+    
+    public IEnumerable<decimal> CombineWordsAndNumbers(IEnumerable<string> collectionA, IEnumerable<int> collectionB)
+    {
+        return default;
+    }
 }
