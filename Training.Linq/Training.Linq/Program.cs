@@ -54,6 +54,12 @@ Console.WriteLine($"{nameof(dataProcessor.CombineCollections)} Result: {result13
 var result14 = dataProcessor.CombineWordsAndNumbers(dataRepository.TenWords, dataRepository.TenNumbers);
 Console.WriteLine($"{nameof(dataProcessor.CombineCollections)} Result: {result14.ToSingleString()}");
 
+var result15 = dataProcessor.BuildAddress(dataRepository.BuildingNumber, dataRepository.FlatNumber, dataRepository.StreetName);
+Console.WriteLine($"{nameof(dataProcessor.BuildAddress)} Result: {result15.ToSingleString()}");
+
+var result16 = dataProcessor.SumMultidisimensionalArray(dataRepository.MultiDimensionalArray);
+Console.WriteLine($"{nameof(dataProcessor.SumMultidisimensionalArray)} Result: {result16}");
+
 Console.WriteLine();
 Console.WriteLine($"Press any key to exit");
 Console.ReadKey();

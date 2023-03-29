@@ -95,4 +95,15 @@ public class DataProcessor
     {
         return default;
     }
+
+    public IEnumerable<string> BuildAddress(IEnumerable<string> buildingNumbers, IEnumerable<int> flatNumbers,
+        IEnumerable<string> streetNames)
+    {
+        return default;
+    }
+    
+    public int SumMultidisimensionalArray(int[,] array)
+    {
+        return default;
+    }
 }
