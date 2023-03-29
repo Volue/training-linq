@@ -32,7 +32,7 @@ var result7 = dataProcessor.ShuffleNumbers(dataRepository.TenConsecutiveNumbers)
 Console.WriteLine($"{nameof(dataProcessor.ShuffleNumbers)} Result: {result7.ToSingleString()}");
 
 var result8 = dataProcessor.GetCharacterFrequency(dataRepository.TenWords);
-Console.WriteLine($"{nameof(dataProcessor.GetCharacterFrequency)} Result: {result8}");
+Console.WriteLine($"{nameof(dataProcessor.GetCharacterFrequency)} Result: {result8.ToSingleString()}");
 
 var result9 = dataProcessor.GetMostFrequentCharacter(dataRepository.TenWords);
 Console.WriteLine($"{nameof(dataProcessor.GetMostFrequentCharacter)} Result: {result9}");

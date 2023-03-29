@@ -4,43 +4,56 @@ public class DataProcessor
 {
     public IEnumerable<int> GetNumbersFromRange(IEnumerable<int> collection, int start, int end)
     {
-        return Enumerable.Empty<int>();
+        return collection
+            .Where(n => n >= start)
+            .Where(n => n <= end);
     }
-    
+
     public IEnumerable<int> GetSquaresAbove(IEnumerable<int> collection, int limit)
     {
-        return Enumerable.Empty<int>();
+        return collection.Where(n => n * n > limit);
     }
-    
+
     public IEnumerable<string> GetWordsLongerThan(IEnumerable<string> collection, int minLength)
     {
-        return Enumerable.Empty<string>();
+        return collection.Where(w => w.Length > minLength);
     }
     
     public IEnumerable<string> GetUniequeWords(IEnumerable<string> collection)
     {
-        return Enumerable.Empty<string>();
+        return collection
+            .GroupBy(x => x)
+            .Where(x => x.Count() == 1)
+            .Select(x => x.Key)
+            .ToList();
     }
     
     public IEnumerable<string> GetContainingLetter(IEnumerable<string> collection, char letter)
     {
-        return Enumerable.Empty<string>();
+        return collection.Where(x => x.Contains(letter));
     }
     
     public IEnumerable<string> ChangeLetterToLetter(IEnumerable<string> collection, char oldValue, char newValue)
     {
-        return Enumerable.Empty<string>();
+        return collection.Select(x => x.Replace(oldValue, newValue));
     }
     
     public IEnumerable<int> ShuffleNumbers(IEnumerable<int> collection)
     {
-        return Enumerable.Empty<int>();
+        var random = new Random();
+        return collection.OrderBy(x => random.Next());
     }
     
-    public IEnumerable<(char, int)> GetCharacterFrequency(IEnumerable<string> collection)
+    public IEnumerable<string> GetCharacterFrequency(IEnumerable<string> collection)
     {
-        return Enumerable.Empty<(char, int)>();
+        var characterFrequency = collection
+            .Aggregate((acc, value) => $"{acc}{value}")
+            .GroupBy(x => x)
+            .Select(x => $"{x.Key}: {x.Count()}")
+            .ToList();
+        return characterFrequency;
     }
+    
     
     public char GetMostFrequentCharacter(IEnumerable<string> collection)
     {
@@ -50,5 +63,16 @@ public class DataProcessor
     public IEnumerable<string> GetUniqueValues(IEnumerable<string> collection)
     {
         return default;
+    }
+
+    public Task<int> ReturnNumber(int n)
+    {
+        return Task.FromResult(n);
+    }
+    
+    public async Task Test(int n)
+    {
+        var dataRepository = new DataRepository();
+        dataRepository.TenNumbers.Select(async n => await ReturnNumber(n));
     }
 }
